@@ -6,14 +6,8 @@
 FROM python:3.11
 
 
-# 非必要步骤，更换pip源 （以下三行，可以删除）
-RUN echo '[global]' > /etc/pip.conf && \
-    echo 'index-url = https://mirrors.aliyun.com/pypi/simple/' >> /etc/pip.conf && \
-    echo 'trusted-host = mirrors.aliyun.com' >> /etc/pip.conf
-
-
 # 语音输出功能（以下两行，第一行更换阿里源，第二行安装ffmpeg，都可以删除）
-RUN UBUNTU_VERSION=$(awk -F= '/^VERSION_CODENAME=/{print $2}' /etc/os-release); echo "deb https://mirrors.aliyun.com/debian/ $UBUNTU_VERSION main non-free contrib" > /etc/apt/sources.list; apt-get update
+# RUN UBUNTU_VERSION=$(awk -F= '/^VERSION_CODENAME=/{print $2}' /etc/os-release); echo "deb https://mirrors.aliyun.com/debian/ $UBUNTU_VERSION main non-free contrib" > /etc/apt/sources.list; apt-get update
 RUN apt-get install ffmpeg -y
 
 
