@@ -421,7 +421,7 @@ def Latex翻译中文并重新编译PDF(txt, llm_kwargs, plugin_kwargs, chatbot,
     success = yield from 编译Latex(chatbot, history, main_file_original='merge',
                                    main_file_modified='merge_translate_zh', mode='translate_zh',
                                    work_folder_original=project_folder, work_folder_modified=project_folder,
-                                   work_folder=project_folder, compiler='xelatex')
+                                   work_folder=project_folder)
 
     # <-------------- zip PDF ------------->
     zip_res = zip_result(project_folder)
