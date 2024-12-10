@@ -5,6 +5,11 @@
 # - 如何运行(其他操作系统，选择任意一个固定端口50923): `docker run --rm -it -e WEB_PORT=50923 -p 50923:50923 gpt-academic `
 FROM python:3.11
 
+# 更新包列表并安装 TeX Live 及其依赖
+RUN apt-get update && \
+    apt-get install -y texlive-full && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 # 进入工作路径（必要）
 WORKDIR /gpt
 
